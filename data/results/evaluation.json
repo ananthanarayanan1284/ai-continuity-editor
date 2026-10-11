@@ -1,0 +1,301 @@
+{
+ "meta": {
+  "date": "2026-10-05",
+  "model": "qwen3:4b-instruct",
+  "extraction": "v4",
+  "checker": "v2",
+  "chapters": "24",
+  "test corpus check": "185 LLM calls, 2691s",
+  "original book check": "265 LLM calls, 3686s"
+ },
+ "contradictions": 20,
+ "detected": 5,
+ "detected_in_chapter": 5,
+ "recall": 0.25,
+ "flags": 112,
+ "true_positive_flags": 8,
+ "precision": 0.071,
+ "control_false_alarms": 0,
+ "tier_agreement": 0.4,
+ "by_category": {
+  "characterisation": {
+   "injected": 7.0,
+   "detected": 3.0,
+   "recall": 0.429
+  },
+  "factual_detail": {
+   "injected": 3.0,
+   "detected": 0.0,
+   "recall": 0.0
+  },
+  "timeline": {
+   "injected": 4.0,
+   "detected": 1.0,
+   "recall": 0.25
+  },
+  "world_building": {
+   "injected": 6.0,
+   "detected": 1.0,
+   "recall": 0.167
+  }
+ },
+ "by_confidence": {
+  "high": {
+   "flags": 16.0,
+   "true_positives": 2.0,
+   "precision": 0.125
+  },
+  "medium": {
+   "flags": 24.0,
+   "true_positives": 4.0,
+   "precision": 0.167
+  },
+  "low": {
+   "flags": 72.0,
+   "true_positives": 2.0,
+   "precision": 0.028
+  }
+ },
+ "injections": [
+  {
+   "id": "I01",
+   "kind": "contradiction",
+   "chapter": 8,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "It was true; Toto, the little white dog, had fallen down beside his little mistress.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I02",
+   "kind": "contradiction",
+   "chapter": 10,
+   "category": "characterisation",
+   "expected_confidence": "low",
+   "replace": "and even on little Toto, whose black coat now looked quite green through the glasses; and all were locked fast with the key.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I03",
+   "kind": "contradiction",
+   "chapter": 11,
+   "category": "factual_detail",
+   "expected_confidence": "high",
+   "replace": "\u201cSend me back to Kansas, where my Aunt Em and Uncle Henry, the village blacksmith, are,\u201d she answered earnestly.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I04",
+   "kind": "contradiction",
+   "chapter": 24,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "Aunt Em, her bright blue eyes sparkling, had just come out of the house to water the cabbages",
+   "detected": true,
+   "detected_in_chapter": true,
+   "predicted_confidence": "high",
+   "reason": "Earlier, in chapter 1, Aunt Em's eyes are described as 'sober gray' due to the effects of hardship. In chapter 24, her eyes are described as 'bright blue,' which directly contradicts the earlier description of gray eyes. This change in eye color is not explained by any context in the new statement\u2014there is no mention of a transformation, recovery, or change in circumstances that would account for this shift. The contrast between 'sober gray' and 'bright blue' is stark and lacks narrative justification."
+  },
+  {
+   "id": "I05",
+   "kind": "contradiction",
+   "chapter": 9,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "because his head was stuffed with sawdust",
+   "detected": true,
+   "detected_in_chapter": true,
+   "predicted_confidence": "high",
+   "reason": "Earlier, it was established in chapter 6 that the Scarecrow's head is stuffed with straw. The new statement in chapter 9 claims his head is stuffed with sawdust, which directly contradicts the earlier fact and introduces a material change without any narrative explanation."
+  },
+  {
+   "id": "I06",
+   "kind": "contradiction",
+   "chapter": 11,
+   "category": "factual_detail",
+   "expected_confidence": "high",
+   "replace": "when I mentioned your golden shoes he was very much interested.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I07",
+   "kind": "contradiction",
+   "chapter": 14,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "that is how it happens that we are forever, without any limit, the slaves of the owner of the Golden Cap",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I08",
+   "kind": "contradiction",
+   "chapter": 18,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "She is the most wicked of all the Witches, and rules cruelly over the Quadlings.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I09",
+   "kind": "contradiction",
+   "chapter": 11,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "Dorothy and her friends were at first dazzled by the brilliancy of the wonderful City, though the people who lived there never wore spectacles at all.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I10",
+   "kind": "contradiction",
+   "chapter": 13,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "the Wicked Witch had been burned up in her own kitchen fire",
+   "detected": true,
+   "detected_in_chapter": true,
+   "predicted_confidence": "medium",
+   "reason": "The earlier facts establish that the Lion is initially unwilling to harm Dorothy and expresses cowardice, yet agrees to go with her. The new statement in chapter 13 claims that Dorothy freed the Lion from prison, implying a shift in their relationship from one of mutual reluctance to one of liberation and gratitude. While the Lion's willingness to go with Dorothy is consistent, the claim that Dorothy 'freed' him contradicts the earlier implication that he was already free and only accompanied Dorothy out of cowardice, not because he was imprisoned. However, the idea of a prison may be a narrative device or a misinterpretation of earlier events, and the Lion's gratitude suggests a change in circumstances rather than a contradiction in character. This change could be explained by the story's progression\u2014Dorothy's actions in the final chapters may have revealed a deeper bond, and the Lion's earlier 'cowardice' may have been a facade or a temporary state."
+  },
+  {
+   "id": "I11",
+   "kind": "contradiction",
+   "chapter": 10,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "while in the country of the Munchkins red was the favorite color.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I12",
+   "kind": "contradiction",
+   "chapter": 8,
+   "category": "timeline",
+   "expected_confidence": "high",
+   "replace": "\u201cFor many long years I was stuck on a pole in a cornfield",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I13",
+   "kind": "contradiction",
+   "chapter": 6,
+   "category": "timeline",
+   "expected_confidence": "high",
+   "replace": "I stood rusting in the forest for only a single day, but I am not afraid so long as I have my oil-can",
+   "detected": true,
+   "detected_in_chapter": true,
+   "predicted_confidence": "medium",
+   "reason": "The earlier facts establish that the Tin Woodman has a jointed body made entirely of tin, with a shiny, rigid appearance. The new statement in chapter 6 describes him as 'standing rusting' in the forest, which introduces a change in material\u2014tin turning to rust\u2014suggesting corrosion. While rusting is a natural degradation of tin, the earlier description emphasizes his metallic, shiny, unyielding form. This shift from a bright, jointed tin figure to one that is rusting implies a transformation or deterioration, which is not directly contradicted if explained by time or environmental exposure. However, the appearance change from 'shining tin' to 'rusting' is a significant physical shift that contradicts the earlier image of a pristine, intact tin body."
+  },
+  {
+   "id": "I14",
+   "kind": "contradiction",
+   "chapter": 7,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "\u201cAh,\u201d said the Tin Woodman sadly, \u201cI wish I had brains to think with, for I never cared for a heart.\u201d",
+   "detected": true,
+   "detected_in_chapter": true,
+   "predicted_confidence": "low",
+   "reason": "The earlier facts establish that the Tin Woodman is polite, grateful, and not afraid\u2014showing a calm, resilient, and emotionally composed personality. The new statement introduces a wish for brains, which contrasts with the earlier depiction of a polite and grateful creature, but does not contradict it directly. The wish for brains does not imply a change in temperament or fear, nor does it contradict his politeness or gratitude. Instead, it reflects a deeper internal thought, possibly indicating a sense of limitation or self-awareness, which is consistent with a character who is still polite but now expresses a personal longing. This is a shift in focus from outward behavior to inner desire, not a contradiction of personality traits."
+  },
+  {
+   "id": "I15",
+   "kind": "contradiction",
+   "chapter": 10,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "\u201cAnd I want him to give me a heart, for I have plenty of courage,\u201d said the Cowardly Lion.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I16",
+   "kind": "contradiction",
+   "chapter": 4,
+   "category": "factual_detail",
+   "expected_confidence": "medium",
+   "replace": "So she told him all about Kansas, and how green and bright everything was there",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I17",
+   "kind": "contradiction",
+   "chapter": 2,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "The men, Dorothy thought, were about as old as Uncle Henry, though unlike clean-shaven Uncle Henry, two of them had beards.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I18",
+   "kind": "contradiction",
+   "chapter": 12,
+   "category": "world_building",
+   "expected_confidence": "low",
+   "replace": "But, in truth, she did not dare to strike Dorothy, although the faded mark upon her forehead seemed hardly to protect her at all.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I19",
+   "kind": "contradiction",
+   "chapter": 3,
+   "category": "timeline",
+   "expected_confidence": "high",
+   "replace": "\u201cBecause you wear silver shoes and have killed the Wicked Witch, who had ruled us for only a few weeks.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I20",
+   "kind": "contradiction",
+   "chapter": 17,
+   "category": "timeline",
+   "expected_confidence": "high",
+   "replace": "\u201cYou see, when I came to this country only last spring, it was in a balloon.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  }
+ ]
+}

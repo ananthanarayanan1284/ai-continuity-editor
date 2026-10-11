@@ -1,0 +1,28 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Source novels and intermediate files (keep the folders, not the contents).
+# data/test_corpus/ is committed: it holds the ground-truth labels.
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Logs (may contain machine-specific details)
+*.log
+
+# Editor settings (machine-specific paths)
+.vscode/
+
+# macOS
+.DS_Store

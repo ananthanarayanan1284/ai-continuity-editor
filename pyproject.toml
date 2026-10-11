@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "continuity-editor"
+version = "0.1.0"
+description = "AI Continuity Editor: LLM- and knowledge-graph-based contradiction detection in novel manuscripts"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+include = ["continuity_editor*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: needs a live service (Neo4j credentials in .env, or Ollama running)"]
