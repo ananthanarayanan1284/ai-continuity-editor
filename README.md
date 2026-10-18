@@ -98,7 +98,27 @@ Each has an expected tier. Two are deliberately ambiguous and expected to be **l
 
 A flag counts as a hit when it cites the injected sentence. **Recall** is the share of injected contradictions hit; **precision** is the share of flags that hit one. The full results, including every false alarm with the checker's reason, are in `data/results/evaluation_report.md`.
 
-<!-- RESULTS -->
+### Results
+
+| Run | Model | Pipeline | Recall | Precision | F1 | "High" flags correct | False alarms on the original book |
+|---|---|---|---|---|---|---|---|
+| Laptop, first version | qwen3:4b-instruct | extraction v4, checker v2 | 5/20 (25%) | 8/112 (7%) | 11% | 2/16 | 111 |
+| Kaggle, improved | qwen3:4b-instruct | extraction v5, checker v3 | 1/20 (5%) | 1/32 (3%) | 4% | 0/3 | 29 |
+| Kaggle, improved | qwen3:14b | extraction v5, checker v3 | 3/20 (15%) | 3/26 (12%) | **13%** | 2/5 | 26 |
+
+None of the runs raised a false alarm on the two harmless control edits.
+
+**What the numbers say:**
+
+- **The first version found more, but cried wolf.** 72 of its 112 flags were "low" flags comparing unrelated facts ("Dorothy prefers cooked food" vs "Dorothy is friendly"). A trace of its 15 misses showed that 11 were lost at extraction: the small model never recorded the changed detail.
+- **The improvements cut false alarms by about three quarters** (111 → 26–29 on the original book). Version 3 of the checker only compares statements about the same property, and double-checks every flag before keeping it. Extraction version 5 uses smaller chunks and asks explicitly for details.
+- **They also made the checker too cautious.** Recall fell, most likely because the double-check and the stricter pairing of earlier facts also discard some real contradictions.
+- **The bigger model is better than the small one under the same pipeline**: three times the recall, four times the precision, and 2 of its 5 "high" flags were real. Among others, it caught Uncle Henry becoming a blacksmith, which no other run found.
+- **Overall, accuracy is still low (best F1 13%).** With free models that fit a laptop or a free GPU, the bottleneck is extraction: a contradiction the model never writes down as a fact can't be checked.
+
+The full reports, with every planted contradiction and every false alarm and the checker's reasons, are in `data/results/evaluation_report.md` (first version), `data/results/kaggle_4b/` and `data/results/kaggle_14b/`. `notebooks/04_evaluation.ipynb` shows the three runs side by side.
+
+**Next steps that would most likely help:** loosen the double-check, so that it lowers a flag's tier instead of dropping it; compare a new statement with the raw earlier sentences as well as with extracted facts, so details missed at extraction can still be caught; and try a larger free model where the GPU allows.
 
 ## Project layout
 
@@ -148,6 +168,7 @@ The default, `qwen3:4b-instruct`, is chosen to fit an 8 GB laptop. On a computer
 - **Facts, not events.** The checker compares stated facts. A contradiction that exists only in what *happens* (event order, who was where) is out of its reach unless the text also states it as a fact.
 - **Name matching is rule-based.** Synonyms such as "the City of Emeralds" and "the Emerald City" stay separate entities.
 - **A small test set.** Twenty hand-made injections in one book give indicative, not definitive, precision and recall.
+- **Low accuracy so far.** The best run reaches an F1 of 13% (see *Results*). The tool is a working pipeline and an honest measurement, not yet a reliable editor.
 
 ## Tests
 

@@ -1,0 +1,301 @@
+{
+ "meta": {
+  "date": "2026-10-05",
+  "model": "qwen3:14b",
+  "extraction": "v5",
+  "checker": "v3",
+  "chapters": "24",
+  "test corpus check": "438 LLM calls, 2563s",
+  "original book check": "282 LLM calls, 1788s"
+ },
+ "contradictions": 20,
+ "detected": 3,
+ "detected_in_chapter": 3,
+ "recall": 0.15,
+ "flags": 26,
+ "true_positive_flags": 3,
+ "precision": 0.115,
+ "control_false_alarms": 0,
+ "tier_agreement": 0.667,
+ "by_category": {
+  "characterisation": {
+   "injected": 7.0,
+   "detected": 2.0,
+   "recall": 0.286
+  },
+  "factual_detail": {
+   "injected": 3.0,
+   "detected": 1.0,
+   "recall": 0.333
+  },
+  "timeline": {
+   "injected": 4.0,
+   "detected": 0.0,
+   "recall": 0.0
+  },
+  "world_building": {
+   "injected": 6.0,
+   "detected": 0.0,
+   "recall": 0.0
+  }
+ },
+ "by_confidence": {
+  "high": {
+   "flags": 5.0,
+   "true_positives": 2.0,
+   "precision": 0.4
+  },
+  "medium": {
+   "flags": 4.0,
+   "true_positives": 0.0,
+   "precision": 0.0
+  },
+  "low": {
+   "flags": 17.0,
+   "true_positives": 1.0,
+   "precision": 0.059
+  }
+ },
+ "injections": [
+  {
+   "id": "I01",
+   "kind": "contradiction",
+   "chapter": 8,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "It was true; Toto, the little white dog, had fallen down beside his little mistress.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I02",
+   "kind": "contradiction",
+   "chapter": 10,
+   "category": "characterisation",
+   "expected_confidence": "low",
+   "replace": "and even on little Toto, whose black coat now looked quite green through the glasses; and all were locked fast with the key.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I03",
+   "kind": "contradiction",
+   "chapter": 11,
+   "category": "factual_detail",
+   "expected_confidence": "high",
+   "replace": "\u201cSend me back to Kansas, where my Aunt Em and Uncle Henry, the village blacksmith, are,\u201d she answered earnestly.",
+   "detected": true,
+   "detected_in_chapter": true,
+   "predicted_confidence": "high",
+   "reason": "The earlier fact states that Uncle Henry was a farmer, while the new statement describes him as a village blacksmith, indicating a contradiction in his occupation. Double-check: The two statements describe different occupations for Uncle Henry, which are conflicting unless explained by a change or a mistake in the story."
+  },
+  {
+   "id": "I04",
+   "kind": "contradiction",
+   "chapter": 24,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "Aunt Em, her bright blue eyes sparkling, had just come out of the house to water the cabbages",
+   "detected": true,
+   "detected_in_chapter": true,
+   "predicted_confidence": "low",
+   "reason": "The earlier fact describes Aunt Em's eye color as 'sober gray,' while the new statement describes her eyes as 'bright blue,' indicating a contradiction in the same property (eye color). Double-check: The two statements describe different eye colors for Aunt Em, which could be explained by a change in the story or a misdescription."
+  },
+  {
+   "id": "I05",
+   "kind": "contradiction",
+   "chapter": 9,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "because his head was stuffed with sawdust",
+   "detected": true,
+   "detected_in_chapter": true,
+   "predicted_confidence": "high",
+   "reason": "The earlier facts consistently state that the Scarecrow is made of straw, while the new statement claims his head is stuffed with sawdust. This is a contradiction about the material the Scarecrow is made of. Double-check: The two statements describe different materials used to make the Scarecrow's head, which is a specific property (the composition of his head)."
+  },
+  {
+   "id": "I06",
+   "kind": "contradiction",
+   "chapter": 11,
+   "category": "factual_detail",
+   "expected_confidence": "high",
+   "replace": "when I mentioned your golden shoes he was very much interested.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I07",
+   "kind": "contradiction",
+   "chapter": 14,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "that is how it happens that we are forever, without any limit, the slaves of the owner of the Golden Cap",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I08",
+   "kind": "contradiction",
+   "chapter": 18,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "She is the most wicked of all the Witches, and rules cruelly over the Quadlings.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I09",
+   "kind": "contradiction",
+   "chapter": 11,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "Dorothy and her friends were at first dazzled by the brilliancy of the wonderful City, though the people who lived there never wore spectacles at all.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I10",
+   "kind": "contradiction",
+   "chapter": 13,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "the Wicked Witch had been burned up in her own kitchen fire",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I11",
+   "kind": "contradiction",
+   "chapter": 10,
+   "category": "world_building",
+   "expected_confidence": "high",
+   "replace": "while in the country of the Munchkins red was the favorite color.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I12",
+   "kind": "contradiction",
+   "chapter": 8,
+   "category": "timeline",
+   "expected_confidence": "high",
+   "replace": "\u201cFor many long years I was stuck on a pole in a cornfield",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I13",
+   "kind": "contradiction",
+   "chapter": 6,
+   "category": "timeline",
+   "expected_confidence": "high",
+   "replace": "I stood rusting in the forest for only a single day, but I am not afraid so long as I have my oil-can",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I14",
+   "kind": "contradiction",
+   "chapter": 7,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "\u201cAh,\u201d said the Tin Woodman sadly, \u201cI wish I had brains to think with, for I never cared for a heart.\u201d",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I15",
+   "kind": "contradiction",
+   "chapter": 10,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "\u201cAnd I want him to give me a heart, for I have plenty of courage,\u201d said the Cowardly Lion.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I16",
+   "kind": "contradiction",
+   "chapter": 4,
+   "category": "factual_detail",
+   "expected_confidence": "medium",
+   "replace": "So she told him all about Kansas, and how green and bright everything was there",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I17",
+   "kind": "contradiction",
+   "chapter": 2,
+   "category": "characterisation",
+   "expected_confidence": "high",
+   "replace": "The men, Dorothy thought, were about as old as Uncle Henry, though unlike clean-shaven Uncle Henry, two of them had beards.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I18",
+   "kind": "contradiction",
+   "chapter": 12,
+   "category": "world_building",
+   "expected_confidence": "low",
+   "replace": "But, in truth, she did not dare to strike Dorothy, although the faded mark upon her forehead seemed hardly to protect her at all.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I19",
+   "kind": "contradiction",
+   "chapter": 3,
+   "category": "timeline",
+   "expected_confidence": "high",
+   "replace": "\u201cBecause you wear silver shoes and have killed the Wicked Witch, who had ruled us for only a few weeks.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  },
+  {
+   "id": "I20",
+   "kind": "contradiction",
+   "chapter": 17,
+   "category": "timeline",
+   "expected_confidence": "high",
+   "replace": "\u201cYou see, when I came to this country only last spring, it was in a balloon.",
+   "detected": false,
+   "detected_in_chapter": false,
+   "predicted_confidence": null,
+   "reason": null
+  }
+ ]
+}
